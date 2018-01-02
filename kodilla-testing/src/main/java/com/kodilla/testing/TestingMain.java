@@ -1,6 +1,10 @@
 package com.kodilla.testing;
 
 import com.kodilla.testing.Calculator.Calculator;
+import com.kodilla.testing.shape.ShapeCollector;
+import com.kodilla.testing.shape.Square;
+import com.kodilla.testing.shape.Triangle;
+
 
 public class TestingMain {
 
