@@ -11,33 +11,34 @@ public class StatisticsCalculator {
 
     Statistics statistics;
 
+
     public StatisticsCalculator(Statistics statistics) {
         this.statistics = statistics;
     }
 
     public void calculateAdvStatistics(Statistics statistics) {
-        usersNumber = statistics.usersNames().size();
-        postsNumber = statistics.postsCount();
-        commentsNumber = statistics.commentsCount();
-        if(statistics.postsCount() !=0 && statistics.usersNames().size() !=0 && statistics.commentsCount() !=0) {
-            averagePostsPerUser = statistics.postsCount() / statistics.usersNames().size();
-        }
-        else{
-            throw new ArithmeticException("Error");
-        }
-        if(statistics.postsCount() !=0 && statistics.usersNames().size() !=0 && statistics.commentsCount() !=0) {
-            averageCommentsPerUser = statistics.commentsCount() / statistics.usersNames().size();
-        }
-        else{
-            throw new ArithmeticException("Error");
-        }
-        if(statistics.postsCount() !=0 && statistics.usersNames().size() !=0 && statistics.commentsCount() !=0) {
-            averageCommentsPerPost = statistics.commentsCount() / statistics.postsCount();
-        }
-        else{
-            throw new ArithmeticException("Error");
-        }
 
+            usersNumber = statistics.usersNames().size();
+            postsNumber = statistics.postsCount();
+            commentsNumber = statistics.commentsCount();
+            if(statistics.postsCount() !=0 && statistics.usersNames().size() !=0){
+                averagePostsPerUser = statistics.postsCount() / statistics.usersNames().size();
+            }
+            else{
+                averagePostsPerUser = 0;
+            }
+            if(statistics.usersNames().size() !=0 && statistics.commentsCount() !=0){
+                averageCommentsPerUser = statistics.commentsCount() / statistics.usersNames().size();
+            }
+            else{
+                averageCommentsPerUser=0;
+            }
+            if(statistics.commentsCount() !=0 && statistics.postsCount() !=0){
+                averageCommentsPerPost = statistics.commentsCount() / statistics.postsCount();
+            }
+            else{
+                averageCommentsPerPost=0;
+            }
     }
 
     public void showStatistics() {

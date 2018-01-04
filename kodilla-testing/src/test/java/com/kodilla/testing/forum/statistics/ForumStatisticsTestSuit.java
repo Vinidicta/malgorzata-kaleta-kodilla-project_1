@@ -35,7 +35,7 @@ public class ForumStatisticsTestSuit {
     }
 
     //This is test method for case when number of posts equals zero
-    @Test(expected = ArithmeticException.class)
+    @Test
     public void testStatisticsCalculatorWithNonePosts() {
         //Given
         Statistics statisticsMock = mock(Statistics.class);
@@ -54,13 +54,13 @@ public class ForumStatisticsTestSuit {
         statisticsCalculator.calculateAdvStatistics(statisticsMock);
         statisticsCalculator.showStatistics();
         //Then
-        Assert.assertEquals(new ArithmeticException("Error"), statisticsCalculator.getAveragePostsPerUser());
+        Assert.assertEquals(0, statisticsCalculator.getAverageCommentsPerPost(),0);
 
     }
 
 
     //This is test method for case when number of comments equals zero
-    @Test(expected = ArithmeticException.class)
+    @Test
     public void testStatisticsCalculatorWithNoneComments() {
         //Given
         Statistics statisticsMock = mock(Statistics.class);
@@ -77,7 +77,7 @@ public class ForumStatisticsTestSuit {
         statisticsCalculator.calculateAdvStatistics(statisticsMock);
         statisticsCalculator.showStatistics();
 
-        Assert.assertEquals(new ArithmeticException("Error"), statisticsCalculator.getAverageCommentsPerUser());
+        Assert.assertEquals(0, statisticsCalculator.getAverageCommentsPerPost(), 0);
     }
 
     //This is test method for case when number of posts equals 1000 and numbers of posts is less than comments
@@ -125,7 +125,7 @@ public class ForumStatisticsTestSuit {
     }
 
     //This is test method for case when list of forum users is empty, no comments and posts
-    @Test(expected = ArithmeticException.class)
+    @Test
     public void testStatisticsCalculatorWithEmptyListOfUsers() {
         //Given
         Statistics statisticsMock = mock(Statistics.class);
@@ -139,7 +139,7 @@ public class ForumStatisticsTestSuit {
         statisticsCalculator.calculateAdvStatistics(statisticsMock);
         statisticsCalculator.showStatistics();
 
-        Assert.assertEquals(new ArithmeticException("Error"), statisticsCalculator.getUsersNumber());
+        Assert.assertEquals(0, statisticsCalculator.getAverageCommentsPerUser(),0);
 
     }
     //This is test method for case when list of forum users is contains 100 user's names
