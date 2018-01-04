@@ -69,7 +69,7 @@ public class ShapeCollectorTestSuit {
         shapeCollector.addFigure(new Circle(3));
         shapeCollector.showFigures();
         //Then
-        Assert.assertEquals(3, shapeCollector.showCollectionsize());
+        Assert.assertEquals("", 3, shapeCollector.showCollectionsize());
     }
 
 }

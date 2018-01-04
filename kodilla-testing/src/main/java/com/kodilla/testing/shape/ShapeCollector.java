@@ -20,11 +20,13 @@ public class ShapeCollector {
         System.out.println(shapes.get(i));
     }
 
-    public void showFigures(){
+    public String showFigures(){
+            String result = "";
+            for (Shape shape : shapes) {
+                result += shape + "\n";
+            }
 
-        for (Shape shape : shapes){
-            System.out.println(shape);
-        }
+            return result;
     }
 
     public int showCollectionsize(){
