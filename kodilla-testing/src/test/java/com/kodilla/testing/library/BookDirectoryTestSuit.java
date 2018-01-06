@@ -133,7 +133,6 @@ public class BookDirectoryTestSuit {
         List<Book> result = libraryDatabaseMock.listBooksInHandsOf(adamNowak);
         //Then
         assertTrue(result.size()==1);
-        assertTrue(result.size()!=0);
     }
 
     //This is test method for case when user has been borrowed five books
@@ -150,6 +149,5 @@ public class BookDirectoryTestSuit {
         List<Book> result = libraryDatabaseMock.listBooksInHandsOf(adamNowak);
         //Then
         assertTrue(result.size()==5);
-        assertTrue(result.size()!=0);
     }
 }
