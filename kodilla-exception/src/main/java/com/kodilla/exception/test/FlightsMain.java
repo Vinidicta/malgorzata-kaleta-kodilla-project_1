@@ -4,14 +4,14 @@ public class FlightsMain {
 
     public static void main(String[] args) {
 
-        Airport airport1 = new Airport("Warsaw");
+        final Airport airport1 = new Airport("Warsaw");
         airport1.addNewDirection("Frankfurt");
         airport1.addNewDirection("Paris");
         airport1.addNewDirection("London");
         airport1.addNewDirection("Milan");
         airport1.addNewDirection("Vienna");
 
-        Airport airport2 = new Airport("Cracow");
+        final Airport airport2 = new Airport("Cracow");
         airport2.addNewDirection("Frankfurt");
         airport2.addNewDirection("Paris");
         airport2.addNewDirection("London");
@@ -19,7 +19,7 @@ public class FlightsMain {
         airport2.addNewDirection("Vienna");
         airport2.addNewDirection("Cairo");
 
-        Airport airport3 = new Airport("London");
+        final Airport airport3 = new Airport("London");
         airport3.addNewDirection("Frankfurt");
         airport3.addNewDirection("Paris");
         airport3.addNewDirection("London");
@@ -27,9 +27,9 @@ public class FlightsMain {
         airport3.addNewDirection("Vienna");
         airport3.addNewDirection("Dubai");
 
-        Airport airport4 = new Airport("Berlin");
+        final Airport airport4 = new Airport("Berlin");
 
-        FlightsFinder flightsFinder = new FlightsFinder();
+        final FlightsFinder flightsFinder = new FlightsFinder();
         flightsFinder.registerNewAirports(airport1, airport2, airport3, airport4);
 
 
