@@ -1,6 +1,11 @@
-package com.kodilla.good.patterns.challenges;
+package com.kodilla.good.patterns.firstChallenge.orderExecution;
 
-public class OrderProcessor {
+import com.kodilla.good.patterns.firstChallenge.informationService.InformationService;
+import com.kodilla.good.patterns.firstChallenge.orderCreator.OrderRequest;
+import com.kodilla.good.patterns.firstChallenge.orderCreator.ProductOrderService;
+import com.kodilla.good.patterns.firstChallenge.orderRepository.OrderServiceRepository;
+
+public class OrderProcessor implements Processor{
 
     private InformationService informationService;
     private ProductOrderService productOrderService;
@@ -12,11 +17,11 @@ public class OrderProcessor {
         this.orderServiceRepository = orderServiceRepository;
     }
 
+    @Override
     public void process(final OrderRequest orderRequest) {
-
         informationService.inform(orderRequest.getClient());
         productOrderService.order(orderRequest.getClient(), orderRequest);
-        orderServiceRepository.createOrder(orderRequest.getClient(), orderRequest.getProductsToOrder());
+        orderServiceRepository.createOrder(orderRequest.getClient(), orderRequest.getOrder());
 
     }
 }

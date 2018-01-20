@@ -1,10 +1,10 @@
-package com.kodilla.good.patterns.challenges;
+package com.kodilla.good.patterns.firstChallenge.orderCreator;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class ProductsToOrder {
+public class Order {
 
     private final List<Product> listOfProducts = new ArrayList<>();
 
