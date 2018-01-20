@@ -1,12 +1,9 @@
 package com.kodilla.good.patterns.firstChallenge.informationService;
 
 import com.kodilla.good.patterns.firstChallenge.orderCreator.Client;
-import com.kodilla.good.patterns.firstChallenge.orderCreator.Order;
 import com.kodilla.good.patterns.secondChallange.manufacturerDatabase.Manufacturer;
 
-public class MailService implements InformationService {
-
-    private Order order;
+public class PhoneService implements InformationService {
 
     @Override
     public String inform(Client client) {
@@ -17,7 +14,6 @@ public class MailService implements InformationService {
     @Override
     public String inform(Manufacturer manufacturer) {
         String message = "New order request was sent";
-        order.showContentsOfList();
         return message;
     }
 }
