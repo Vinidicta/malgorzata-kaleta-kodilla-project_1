@@ -1,19 +1,15 @@
 package com.kodilla.rps.rounds;
 
-import com.kodilla.rps.move.ComputerMove;
-import com.kodilla.rps.move.Move;
-import com.kodilla.rps.move.UsersMove;
-
+import com.kodilla.rps.move.*;
 import java.util.Scanner;
 
 public class Rps {
-
+    private final MoveComparator moveComparator = new MoveComparator();
     private final Scanner input;
     private int userWins;
     private int pcWins;
     private int rounds;
-    private Move pcMove;
-    public Move userMove;
+
 
     public Rps() {
         input = new Scanner(System.in);
@@ -21,26 +17,27 @@ public class Rps {
         rounds = input.nextInt();
     }
 
-    public void startGame(UsersMove user, ComputerMove computer) {
+    public void startGame() {
+
+        final UsersMove user = new UsersMove();
+        final ComputerMove computer = new ComputerMove();
 
         int i = 0;
         while (i < rounds) {
 
-            userMove = user.move();
-            System.out.println("You played: " + userMove);
-            pcMove = computer.move();
-            System.out.println("Computer played " + pcMove);
-            int compareMoves = userMove.compareMoves(pcMove);
+            final Move userMove = getUserMove(user);
+            final Move pcMove = getComputerMove(computer);
+            final Winner winner = moveComparator.compareMoves(userMove, pcMove);
 
-            switch (compareMoves) {
-                case 0:
+            switch (winner) {
+                case TIE:
                     System.out.println("Tie");
                     break;
-                case 1:
+                case HUMAN:
                     System.out.println(userMove + " beats " + pcMove);
                     userWins++;
                     break;
-                case 2:
+                case COMPUTER:
                     System.out.println(pcMove + " beats " + userMove);
                     pcWins++;
                     break;
@@ -48,17 +45,34 @@ public class Rps {
             System.out.println(userWins + " : " + pcWins + "\n");
             i++;
         }
+
         System.out.println("Results of the game: " + userWins + " : " + pcWins);
+        displayResults();
     }
 
-    public void whoWins() {
+    private Move getComputerMove(ComputerMove computer) {
+        final Move move = computer.move();
+        System.out.println("Computer played " + move);
+        return move;
+    }
+
+    private Move getUserMove(UsersMove user) {
+        Move userMove;
+        do {
+            userMove = user.move();
+        } while (userMove == null);
+        System.out.println("You played " + userMove);
+        return userMove;
+    }
+
+    private void displayResults() {
         if (userWins > pcWins) {
             System.out.println("\nCongratulations! You win!");
         }
-        if (userWins == pcWins) {
+        else if (userWins == pcWins) {
             System.out.println("\nThis game was very equal. Tie!");
         }
-        if (userWins < pcWins) {
+        else {
             System.out.println("\nOh no! Computer has more luck this time...");
         }
     }

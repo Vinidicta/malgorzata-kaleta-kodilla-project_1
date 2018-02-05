@@ -1,21 +1,22 @@
 package com.kodilla.rps.processor;
 
-import com.kodilla.rps.move.ComputerMove;
-import com.kodilla.rps.move.UsersMove;
-import com.kodilla.rps.rounds.NextRoundOrLeaveGame;
 import com.kodilla.rps.rounds.Rps;
 import com.kodilla.rps.start.RpsIntroduction;
 
-public class RpsProcessor {
+import java.util.Scanner;
 
-    private final NextRoundOrLeaveGame nextRoundOrLeaveGame = new NextRoundOrLeaveGame();
+public class RpsProcessor {
+    private final Scanner input = new Scanner(System.in);
+
+    public void intro() {
+        new RpsIntroduction();
+    }
 
     public void process() {
-        new RpsIntroduction();
-        final Rps rps = new Rps();
-        rps.startGame(new UsersMove(), new ComputerMove());
-        rps.whoWins();
-        nextRoundOrLeaveGame.nextGameOrQuit();
-
+        do {
+            final Rps rps = new Rps();
+            rps.startGame();
+            System.out.println("Press x if you want to quit or anything else to continue");
+        } while (!input.nextLine().equals("x"));
     }
 }

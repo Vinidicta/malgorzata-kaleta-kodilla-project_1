@@ -9,16 +9,15 @@ public class UsersMove {
     public Move move() {
         System.out.print("Rock, paper, or scissors? ");
         int userMove = input.nextInt();
-        if (userMove == 1 || userMove == 2 || userMove == 3) {
-            switch (userMove) {
-                case 1:
-                    return Move.ROCK;
-                case 2:
-                    return Move.PAPER;
-                case 3:
-                    return Move.SCISSORS;
-            }
+        switch (userMove) {
+            case 1:
+                return Move.ROCK;
+            case 2:
+                return Move.PAPER;
+            case 3:
+                return Move.SCISSORS;
+            default:
+                throw new NullPointerException("Wrong type of data");
         }
-        return move();
     }
 }
