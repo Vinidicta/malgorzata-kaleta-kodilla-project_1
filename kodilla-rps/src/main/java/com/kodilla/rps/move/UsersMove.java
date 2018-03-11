@@ -7,17 +7,19 @@ public class UsersMove {
     private final Scanner input = new Scanner(System.in);
 
     public Move move() {
+
         System.out.print("Rock, paper, or scissors? ");
         int userMove = input.nextInt();
-        switch (userMove) {
-            case 1:
-                return Move.ROCK;
-            case 2:
-                return Move.PAPER;
-            case 3:
-                return Move.SCISSORS;
-            default:
-                throw new NullPointerException("Wrong type of data");
-        }
+        do {
+            switch (userMove) {
+                case 1:
+                    return Move.ROCK;
+                case 2:
+                    return Move.PAPER;
+                case 3:
+                    return Move.SCISSORS;
+            }
+        } while (userMove > 3 && userMove < 1);
+        return null;
     }
 }
