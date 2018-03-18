@@ -1,11 +1,10 @@
 package com.kodilla.stream;
 
 import com.kodilla.stream.beautifier.PoemBeautifier;
-import com.kodilla.stream.book.BookDirectory;
+
 import com.kodilla.stream.forumUser.Forum;
 import com.kodilla.stream.forumUser.ForumUser;
 
-import java.time.LocalDate;
 import java.util.Map;
 import java.util.Random;
 import java.util.stream.Collectors;

@@ -1,4 +1,6 @@
-package com.kodilla.good.patterns.secondChallange;
+package com.kodilla.good.patterns.secondChallange.manufacturerDatabase;
+
+import com.kodilla.good.patterns.challenges.second.database.manufacturer.Manufacturer;
 
 public class ManufacturersDatabase {
 

@@ -1,5 +1,7 @@
-package com.kodilla.good.patterns.secondChallange;
+package com.kodilla.good.patterns.secondChallange.manufacturerDatabase;
 
+
+import com.kodilla.good.patterns.challenges.second.database.manufacturer.Manufacturer;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,7 +1,12 @@
-package com.kodilla.good.patterns.secondChallange;
+package com.kodilla.good.patterns.secondChallange.orderExecution;
+
 
 import com.kodilla.good.patterns.firstChallenge.informationService.MailService;
 import com.kodilla.good.patterns.firstChallenge.orderCreator.OrderRequest;
+
+
+import com.kodilla.good.patterns.secondChallange.OrderExecution;
+import com.kodilla.good.patterns.secondChallange.manufacturerDatabase.NewManufacturer;
 
 public class GlutenFreeShopExecution implements OrderExecution {
 
