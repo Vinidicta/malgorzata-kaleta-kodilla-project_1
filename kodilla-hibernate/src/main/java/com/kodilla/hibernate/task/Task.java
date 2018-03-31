@@ -55,8 +55,8 @@ public final class Task {
         return taskFinancialDetails;
     }
 
-@ManyToOne
-@JoinColumn(name="TASKLIST_ID")
+    @ManyToOne
+    @JoinColumn(name = "TASKLIST_ID")
     public TaskList getTaskList() {
         return taskList;
     }

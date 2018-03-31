@@ -1,20 +1,24 @@
 package com.kodilla.rps.rounds;
 
 import com.kodilla.rps.move.*;
+
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Rps {
     private final MoveComparator moveComparator = new MoveComparator();
-    private final Scanner input;
+    private Scanner input;
     private int userWins;
     private int pcWins;
     private int rounds;
 
 
     public Rps() {
-        input = new Scanner(System.in);
-        System.out.println("Please put how much rounds would you like to play. To accept press enter");
-        rounds = input.nextInt();
+
+                input = new Scanner(System.in);
+                System.out.println("Please put how much rounds would you like to play. To accept press enter");
+                rounds = input.nextInt();
+
     }
 
     public void startGame() {
@@ -68,11 +72,9 @@ public class Rps {
     private void displayResults() {
         if (userWins > pcWins) {
             System.out.println("\nCongratulations! You win!");
-        }
-        else if (userWins == pcWins) {
+        } else if (userWins == pcWins) {
             System.out.println("\nThis game was very equal. Tie!");
-        }
-        else {
+        } else {
             System.out.println("\nOh no! Computer has more luck this time...");
         }
     }
