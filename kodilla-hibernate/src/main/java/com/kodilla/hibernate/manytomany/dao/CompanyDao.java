@@ -12,7 +12,8 @@ import java.util.List;
 @Transactional
 @Repository
 public interface CompanyDao extends JpaRepository<Company, Integer> {
+
     @Query(nativeQuery = true)
-    List<Company> findCompanyByLetters(@Param("firstLetters") String firstLetters);
+    List<Company> retrieveCompanyNameLike(@Param("COMPANY_NAME") String name);
 
 }

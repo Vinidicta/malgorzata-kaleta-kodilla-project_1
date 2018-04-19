@@ -12,6 +12,7 @@ import java.util.List;
 @Transactional
 @Repository
 public interface EmployeeDao extends JpaRepository<Employee, Integer> {
-    @Query
-    List<Employee> findBySurname(@Param("surname") String surname);
+
+    @Query(nativeQuery = true)
+    List<Employee> retrieveEmployeeLike(@Param("LASTNAME") String lastname);
 }
