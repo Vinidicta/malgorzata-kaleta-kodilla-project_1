@@ -19,7 +19,6 @@ public class Student implements Observable {
     }
 
     public String getName() {
-
         return name;
     }
 
