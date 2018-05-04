@@ -1,5 +1,8 @@
 package com.kodilla.patterns2.observer.homework;
 
+import lombok.Getter;
+
+@Getter
 public class Mentor implements Observer {
     private final String name;
     private int updateCount;
@@ -9,19 +12,9 @@ public class Mentor implements Observer {
     }
 
     @Override
-    public void update(Student student) {
-        System.out.println("You have new pending task to review from student: " + student.getName() + "\n" +
-                "To review is task number: " + student.getTaskList().keySet() + " " +
-                student.getTaskList().values() +
-                "\n" + " (total: " + student.getTaskList().size() + " messages.)");
+    public void update(Student student, Task task) {
+        System.out.println("Got update: " + task.getName() + " " + task.getNumber() + " from student: "
+                + student.getName());
         updateCount++;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public int getUpdateCount() {
-        return updateCount;
     }
 }

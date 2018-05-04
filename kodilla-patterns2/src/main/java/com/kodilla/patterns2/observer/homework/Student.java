@@ -1,30 +1,21 @@
 package com.kodilla.patterns2.observer.homework;
 
+import lombok.Getter;
+import lombok.ToString;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@ToString
+@Getter
 public class Student implements Observable {
     private final String name;
     private final List<Observer> observers = new ArrayList<>();
-    private final Map<Double, Task> taskList = new HashMap<>();
 
     public Student(String name) {
         this.name = name;
-    }
-
-    public Map<Double, Task> getTaskList() {
-        return taskList;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void putTask(Double taskNumber, Task task) {
-        taskList.put(taskNumber, task);
-        notifyObservers();
     }
 
     @Override
@@ -33,9 +24,9 @@ public class Student implements Observable {
     }
 
     @Override
-    public void notifyObservers() {
+    public void notifyObservers(Task task) {
         for (Observer observer : observers) {
-            observer.update(this);
+            observer.update(this, task);
         }
     }
 

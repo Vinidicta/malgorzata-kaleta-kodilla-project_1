@@ -19,10 +19,10 @@ public class KodillaCourseTestSuite {
         janKowalski.registerObserver(agataNowakowska);
         marcinKrawczyk.registerObserver(agataNowakowska);
         //When
-        annaNowak.putTask(1.3, new Task("Brave Knight"));
-        annaNowak.putTask(1.4, new Task("Bank Transaction"));
-        janKowalski.putTask(20.2, new Task("Decorate pizza"));
-        marcinKrawczyk.putTask(20.2, new Task("Decorate pizza"));
+        annaNowak.notifyObservers( new Task("Brave Knight", "1.3"));
+        annaNowak.notifyObservers( new Task("Bank Transaction", "1.4"));
+        janKowalski.notifyObservers( new Task("Decorate pizza", "20.2"));
+        marcinKrawczyk.notifyObservers( new Task("Decorate pizza", "20.2"));
         //Then
         assertEquals(2, agataNowakowska.getUpdateCount());
         assertEquals(2, adamKowal.getUpdateCount());
