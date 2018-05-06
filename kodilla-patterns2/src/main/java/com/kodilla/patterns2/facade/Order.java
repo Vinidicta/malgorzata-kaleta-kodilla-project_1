@@ -16,6 +16,7 @@ public class Order {
     public Order(Long orderId, Long userId, ProductService productService) {
         this.orderId = orderId;
         this.userId = userId;
+        this.productService = productService;
     }
 
     public BigDecimal calculateValue() {
